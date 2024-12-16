@@ -23,11 +23,12 @@ function Login() {
       <div className="loginWrapper bg-white shadow-2xl rounded-xl flex flex-col lg:flex-row w-full max-w-7xl">
         {/* Left Side: Login Form */}
         <div className="w-full lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-green-700 mb-6 text-center">
-            Welcome Back, Eco-Warrior! 🌿
+          <h2 className="text-3xl sm:text-4xl font-eczar font-extrabold text-green-700 mb-6 text-center">
+            Welcome Back, Eco-Warrior! 
           </h2>
-          <p className="text-center text-gray-600 mb-6 text-sm sm:text-lg">
-            The Earth appreciates your efforts. Let’s calculate, track, and save our home, one footprint at a time.
+          {/* 🌿 */}
+          <p className="text-center font-Mono text-gray-600 mb-6 text-lg sm:text-xl">
+            The Earth appreciates your efforts. Let’s calculate, track, and save our home, one footprint at a time 🌿
           </p>
           <form className="space-y-6" onSubmit={handleLogin}>
             {/* Email Field */}
@@ -59,7 +60,7 @@ function Login() {
             {/* Login Button */}
             <button
               type="submit"
-              className="w-full py-3 bg-green-600 text-white text-lg sm:text-xl font-bold rounded-lg hover:bg-green-700 transition duration-300"
+              className="w-full py-3 bg-green-200 font-eczar text-black text-lg sm:text-xl font-bold rounded-lg hover:text-white hover:bg-green-700 transition duration-300"
             >
               Let’s Dive In 🌏
             </button>
@@ -70,10 +71,10 @@ function Login() {
         <div className="w-full lg:w-1/2 bg-gradient-to-br from-green-100 to-green-200 flex flex-col justify-between items-center p-6 sm:p-10 text-center">
           {/* Top Content */}
           <div>
-            <h3 className="text-2xl sm:text-3xl font-semibold text-green-800 mb-4">
+            <h3 className="text-2xl font-solway font-bold sm:text-3xl text-green-800 mb-4">
               Act Today for a Greener Tomorrow
             </h3>
-            <p className="text-gray-700 text-sm sm:text-lg">
+            <p className="text-gray-700 font-josefin text-lg sm:text-xl">
               Reducing your carbon footprint is not just about numbers—it’s about taking responsibility for the world we leave behind. Every effort, big or small, counts.
             </p>
           </div>
@@ -97,7 +98,7 @@ function Login() {
 
           {/* Bottom Content */}
           <div>
-            <p className="text-gray-800 text-sm sm:text-lg">
+            <p className="text-gray-800 font-pacifico font-medium text-lg sm:text-xl">
               🌳 Let’s make conscious choices and leave a positive mark on our planet.
             </p>
           </div>

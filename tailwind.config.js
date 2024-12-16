@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      josefin: ['"Josefin Sans"', 'sans-serif'],
+      solway: ['"Solway"', 'serif'],
+      Mono:['"Syne Mono"', 'monospace'],
+      eczar:['"Eczar"', 'serif'],
+    },
   },
   plugins: [],
 }
