@@ -11,6 +11,7 @@ export default {
       solway: ['"Solway"', 'serif'],
       Mono:['"Syne Mono"', 'monospace'],
       eczar:['"Eczar"', 'serif'],
+      pacifco :['"Pacifico"', 'cursive'],
     },
   },
   plugins: [],

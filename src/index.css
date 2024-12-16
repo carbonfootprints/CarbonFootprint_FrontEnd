@@ -1,9 +1,19 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@100..900&family=Eczar:wght@400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Solway:wght@300;400;500;700;800&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@100..900&family=Eczar:wght@400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Pacifico&family=Solway:wght@300;400;500;700;800&family=Syne+Mono&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
 .loginWrapper{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.buttonWrapper{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 }

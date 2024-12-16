@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import backgreen from "../assets/backgreen.svg";
 import emailIcon from "../assets/email.svg";
 import passwordIcon from "../assets/password.svg";
