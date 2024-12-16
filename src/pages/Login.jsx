@@ -13,9 +13,9 @@ function Login() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-slate-200">
-        <img src={background} alt="back" />
+        
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-md rounded-lg">
-        <h2 className="text-2xl font-bold text-center">Login</h2>
+        <h2 className="text-2xl font-bold text-center">Let's Login</h2>
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label className="block text-left text-gray-700">Email</label>
