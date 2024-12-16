@@ -1,4 +1,5 @@
-import  { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";  // Import useNavigate hook
 import backgreen from "../assets/backgreen.svg";
 import emailIcon from "../assets/email.svg";
 import passwordIcon from "../assets/password.svg";
@@ -8,11 +9,13 @@ import illusback from "../assets/illusback.svg";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Initialize navigate function
 
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
+    navigate("/home");  // Navigate to /home page
   };
 
   return (
@@ -103,7 +106,6 @@ function Login() {
             </p>
           </div>
         </div>
-
       </div>
     </div>
   );
