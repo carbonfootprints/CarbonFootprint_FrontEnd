@@ -1,6 +1,50 @@
 import backgreen from "../assets/backgreen.svg";
 import carfoot from "../assets/carfoot.png";
+import {
+    Tabs,
+    TabsHeader,
+    TabsBody,
+    Tab,
+    TabPanel,
+} from "@material-tailwind/react";
+
 function Home() {
+
+    const data = [
+        {
+            label: "HTML",
+            value: "html",
+            desc: `It really matters and then like it really doesn't matter.
+          What matters is the people who are sparked by it. And the people 
+          who are like offended by it, it doesn't matter.`,
+        },
+        {
+            label: "React",
+            value: "react",
+            desc: `Because it's about motivating the doers. Because I'm here
+          to follow my dreams and inspire other people to follow their dreams, too.`,
+        },
+        {
+            label: "Vue",
+            value: "vue",
+            desc: `We're not always in the position that we want to be at.
+          We're constantly growing. We're constantly making mistakes. We're
+          constantly trying to express ourselves and actualize our dreams.`,
+        },
+        {
+            label: "Angular",
+            value: "angular",
+            desc: `Because it's about motivating the doers. Because I'm here
+          to follow my dreams and inspire other people to follow their dreams, too.`,
+        },
+        {
+            label: "Svelte",
+            value: "svelte",
+            desc: `We're not always in the position that we want to be at.
+          We're constantly growing. We're constantly making mistakes. We're
+          constantly trying to express ourselves and actualize our dreams.`,
+        },
+    ];
 
 
     return (
@@ -53,10 +97,32 @@ function Home() {
             </div>
 
 
-
-            <div>
-                
-            </div>
+            <div className="p-6 max-w-xl mx-auto bg-white shadow-lg rounded-lg">
+      <Tabs value="html" className="bg-gray-100 rounded-lg">
+        <TabsHeader className="bg-green-600 rounded-t-lg">
+          {data.map(({ label, value }) => (
+            <Tab
+              key={value}
+              value={value}
+              className="text-white font-bold text-lg py-2 px-4 transition-all duration-300 hover:bg-green-500"
+            >
+              {label}
+            </Tab>
+          ))}
+        </TabsHeader>
+        <TabsBody className="p-4 bg-gray-50 rounded-b-lg">
+          {data.map(({ value, desc }) => (
+            <TabPanel
+              key={value}
+              value={value}
+              className="text-gray-800 text-base leading-6"
+            >
+              {desc}
+            </TabPanel>
+          ))}
+        </TabsBody>
+      </Tabs>
+    </div>
 
 
 
