@@ -111,7 +111,7 @@ function Home() {
         </p>
         <button
           onClick={handleClick} // Attach handleClick to button click
-          className="bg-green-600 buttonWrapper text-white text-lg font-bold py-3 px-6 rounded-full hover:bg-green-700 hover:scale-105 focus:scale-95 active:scale-90 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+          className="bg-green-600 buttonWrapper animate-bounce text-white text-lg font-bold py-3 px-6 rounded-full hover:bg-green-700 hover:scale-105 focus:scale-95 active:scale-90 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
         >
           Let’s Calculate
         </button>

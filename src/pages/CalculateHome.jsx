@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import Organisation from '../components/Organisation'; // Adjust the path as per your project structure
+import ProductionSystem from '../components/ProductionSystem';
+import Boundary from '../components/Boundary';
+import DirectGHG from '../components/DirectGHG';
+import IndirectGHG from '../components/IndirectGHG';
+import Report from '../components/Report';
 
 function CalculateHome() {
   const [activeTab, setActiveTab] = useState('organisation'); // Default active tab
@@ -46,11 +51,11 @@ function CalculateHome() {
         </button>
         <button
           onClick={() => handleTabChange('inDirectGHG')}
-          className={`col-span-6 sm:col-span-1 font-bold py-3 rounded-lg transition ${
+          className={`col-span-p6 sm:col-span-1 font-bold py-3 rounded-lg transition ${
             activeTab === 'inDirectGHG' ? 'bg-green-600 text-white' : 'bg-green-200 text-green-800'
           }`}
         >
-          inDirect GHG
+          InDirect GHG
         </button>
         <button
           onClick={() => handleTabChange('getReport')}
@@ -65,13 +70,11 @@ function CalculateHome() {
       {/* Content */}
       <div className="p-4 border rounded-lg bg-gray-100 shadow-lg">
         {activeTab === 'organisation' && <Organisation />}
-        {activeTab === 'productionSystem' && (
-          <p className="text-gray-700">Content for Production System</p>
-        )}
-        {activeTab === 'boundary' && <p className="text-gray-700">Content for Boundary</p>}
-        {activeTab === 'directGHG' && <p className="text-gray-700">Content for Direct GHG</p>}
-        {activeTab === 'inDirectGHG' && <p className="text-gray-700">Content for inDirect GHG</p>}
-        {activeTab === 'getReport' && <p className="text-gray-700">Content for Report Generation</p>}
+        {activeTab === 'productionSystem' && <ProductionSystem/>}
+        {activeTab === 'boundary' && <Boundary/>}
+        {activeTab === 'directGHG' && <DirectGHG/>}
+        {activeTab === 'inDirectGHG' && <IndirectGHG/>}
+        {activeTab === 'getReport' && <Report/>}
       </div>
     </div>
   );
