@@ -21,7 +21,6 @@ function IndirectGHG() {
 
       {/* Tab Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
-
         <button
           onClick={() => setActiveTab("purchasedElectricity")}
           className={`flex-1 py-2 px-4 rounded-lg text-green-800 font-medium text-center ${
@@ -66,7 +65,6 @@ function IndirectGHG() {
 
               {/* Sub-Tab Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center">
-
                 <button
                   onClick={() => setSubTab("Category2Pernambut")}
                   className={`flex-1 py-2 px-4 rounded-lg text-green-800 font-medium text-center ${
@@ -125,6 +123,16 @@ function IndirectGHG() {
                         className="w-full p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
                       />
                     </div>
+
+                    {/* Save Button for Category2Pernambut */}
+                    <div className="flex justify-center mt-6">
+                      <button
+                        type="submit"
+                        className="py-2 px-6 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                      >
+                        Save
+                      </button>
+                    </div>
                   </form>
                 )}
 
@@ -162,6 +170,16 @@ function IndirectGHG() {
                         className="w-full p-3 border border-green-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
                       />
                     </div>
+
+                    {/* Save Button for Category2Thirumudivakkam */}
+                    <div className="flex justify-center mt-6">
+                      <button
+                        type="submit"
+                        className="py-2 px-6 bg-green-600 text-white rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+                      >
+                        Save
+                      </button>
+                    </div>
                   </form>
                 )}
               </div>
@@ -177,7 +195,6 @@ function IndirectGHG() {
 
               {/* Transportation Tab Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-6 justify-center">
-
                 <button
                   onClick={() =>
                     setTransportationTab("upstreamRoadTransportation")
