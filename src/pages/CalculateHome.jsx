@@ -14,7 +14,7 @@ function CalculateHome() {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className="p-6 bg-white min-h-screen">
       {/* Buttons */}
       <div className="grid grid-cols-6 gap-2 mb-6">
         <button
@@ -63,7 +63,7 @@ function CalculateHome() {
       </div>
 
       {/* Content */}
-      <div className="p-4 border rounded-lg bg-gray-100 shadow-lg">
+      <div className="p-2 border rounded-lg  shadow-lg">
         {activeTab === 'organisation' && <Organisation />}
         {activeTab === 'productionSystem' && <ProductionSystem />}
         {activeTab === 'boundary' && <Boundary />}

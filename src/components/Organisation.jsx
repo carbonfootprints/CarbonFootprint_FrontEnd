@@ -48,10 +48,10 @@ function Organisation() {
   };
 
   return (
-    <div className="infoFirstWrapper my-8">
+    <div className="infoFirstWrapper">
       <form
         onSubmit={handleSubmit}
-        className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-lg infoWrapper"
+        className="max-w-xl mx-auto p-6 bg-white rounded-lg infoWrapper"
       >
         <div className="mb-4">
           <label className="block text-green-800 text-sm font-bold mb-2">
