@@ -114,7 +114,7 @@ function DirectGHG() {
       {/* Content for Category 2 */}
       {activeCategory === "Category2" && (
         <>
-          <div className="grid grid-cols-6 font-josefin gap-4 mb-8">
+          <div className="grid grid-cols-6 p-3 rounded-lg loginWrapper font-josefin gap-4 mb-8">
             <button
               onClick={() => handleTabChange("Category2Pernambut")}
               className={`col-span-6 sm:col-span-2 font-semibold py-2 px-4 rounded-lg transition-all transform ${
