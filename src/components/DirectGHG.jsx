@@ -88,7 +88,7 @@ function DirectGHG() {
           </div>
 
           {/* Conditional Form Rendering */}
-          <div className="w-full max-w-3xl bg-green-50 border border-green-200 p-6 shadow-lg rounded-lg">
+          <div className="w-full max-w-3xl bg-green-50 border border-green-200 p-3 shadow-lg rounded-lg">
             {activeTab === "Pernambut" && (
               <ResourceForm
                 locationName="BAB Pernambut"
