@@ -63,7 +63,7 @@ function CalculateHome() {
       </div>
 
       {/* Content */}
-      <div className="p-2 border rounded-lg  shadow-lg">
+      <div className="p-2 bg-white border rounded-lg  shadow-lg">
         {activeTab === 'organisation' && <Organisation />}
         {activeTab === 'productionSystem' && <ProductionSystem />}
         {activeTab === 'boundary' && <Boundary />}
