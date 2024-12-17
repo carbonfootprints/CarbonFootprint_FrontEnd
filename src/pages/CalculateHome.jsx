@@ -16,7 +16,7 @@ function CalculateHome() {
   return (
     <div className="p-6 bg-white min-h-screen">
       {/* Buttons */}
-      <div className="grid grid-cols-6 gap-2 mb-6">
+      <div className="grid font-eczar grid-cols-6 gap-2 mb-6">
         <button
           onClick={() => handleTabChange('organisation')}
           className={`col-span-6 sm:col-span-1 font-bold py-3 rounded-lg transition ${activeTab === 'organisation' ? 'bg-green-600 text-white' : 'bg-green-200 text-green-800'
