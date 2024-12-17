@@ -30,7 +30,7 @@ const ResourceForm = ({ locationName, apiEndpoint }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-lg w-full max-w-lg mx-auto animate-fade-in"
+      className="bg-white font-solway p-6 rounded-lg w-full max-w-lg mx-auto animate-fade-in"
       style={{ animation: "fade-in 0.5s ease-out" }} // Custom animation
     >
       <h3 className="text-2xl font-semibold mb-6 text-center text-green-700">
