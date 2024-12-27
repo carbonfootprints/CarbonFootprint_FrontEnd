@@ -17,3 +17,13 @@ html, body {
 .buttonWrapper{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
 }
+
+/* Add this to your CSS file */
+.custom-bullet {
+    list-style-type: none;
+    padding-left: 24px; /* Adjust this as needed */
+    background: url('./assets/leaf.svg') no-repeat left center; /* Path to your leaf.svg */
+    background-size: 16px 16px; /* Adjust size of the bullet */
+    background-position: left center;
+  }
+  

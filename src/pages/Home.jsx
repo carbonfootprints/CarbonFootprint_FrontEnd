@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
 import backgreen from "../assets/backgreen.svg";
 import carfoot from "../assets/carfoot.png";
-import logoutIcon from '../assets/logout.svg';
-import leaf from '../assets/leaf.svg';
-import { useState } from 'react';
+
 import {
   Tabs,
   TabsHeader,
@@ -11,39 +9,16 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
-import axios from "axios";
-import { BACKEND_URL } from "../../const";
+
 
 
 function Home() {
 
 
-  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const navigate = useNavigate();
 
   // Handle logout
-  const handleLogout = async () => {
-    try {
-      const response = await axios.post(
-        `${BACKEND_URL}/api/user/logout`,
-        {},
-        {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-          },
-          withCredentials: true, // Ensure cookies are included
-        }
-      );
-
-      if (response.status === 200) {
-        localStorage.removeItem('authToken'); // Remove token from localStorage
-        navigate('/', { replace: true }); // Redirect to login page and replace current page in history
-      }
-    } catch (error) {
-      console.error('Logout error:', error);
-      // Handle the error (e.g., show a message to the user)
-    }
-  };
+ 
 
 
 
@@ -53,9 +28,9 @@ function Home() {
       value: "html",
       desc: `
               <h4 class="font-bold text-xl text-gray-800 mb-4">Renewable and Non-Renewable Energy</h4>
-              <ul class="list-disc pl-6 text-gray-700">
-                  <li><strong>Renewable energy</strong> is essentially inexhaustible and can be replenished naturally.</li>
-                  <li><strong>Non-renewable energy</strong> is exhaustible and cannot be produced, grown, or replenished at a rate that can sustain its consumption.</li>
+              <ul class="pl-6 text-gray-700">
+                  <li>🌿<strong>Renewable energy</strong> is essentially inexhaustible and can be replenished naturally.</li>
+                  <li>🌿<strong>Non-renewable energy</strong> is exhaustible and cannot be produced, grown, or replenished at a rate that can sustain its consumption.</li>
               </ul>
           `,
     },
@@ -64,12 +39,12 @@ function Home() {
       value: "react",
       desc: `
               <h4 class="font-bold text-xl text-gray-800 mb-4">Primary sources of energy - Coal</h4>
-              <ul class="list-disc pl-6 text-gray-700">
-                  <li>Most abundant and geographically dispersed fossil fuel.</li>
-                  <li>Peat, Brown coal (lignite), Sub-bituminous and Anthracite.</li>
-                  <li>Coal reserve: 1257 billion tonnes worldwide, India: 378.21 billion metric tonnes.</li>
-                  <li>Coal accounts for 55% of India’s energy needs.</li>
-                  <li>133 years of coal left @ current consumption levels.</li>
+              <ul class="pl-6 text-gray-700">
+                  <li>🌿Most abundant and geographically dispersed fossil fuel.</li>
+                  <li>🌿Peat, Brown coal (lignite), Sub-bituminous and Anthracite.</li>
+                  <li>🌿Coal reserve: 1257 billion tonnes worldwide, India: 378.21 billion metric tonnes.</li>
+                  <li>🌿Coal accounts for 55% of India’s energy needs.</li>
+                  <li>🌿133 years of coal left @ current consumption levels.</li>
               </ul>
           `,
     },
@@ -78,10 +53,10 @@ function Home() {
       value: "vue",
       desc: `
               <h4 class="font-bold text-xl text-gray-800 mb-4">Primary sources of energy - Oil</h4>
-              <ul class="list-disc pl-6 text-gray-700">
-                  <li>World oil reserve: 1570 trillion barrels.</li>
-                  <li>India oil reserve: 651.77 million tonnes.</li>
-                  <li>At current rate of consumption, oil will be available for the next 47 years.</li>
+              <ul class="pl-6 text-gray-700">
+                  <li>🌿World oil reserve: 1570 trillion barrels.</li>
+                  <li>🌿India oil reserve: 651.77 million tonnes.</li>
+                  <li>🌿At current rate of consumption, oil will be available for the next 47 years.</li>
               </ul>
           `,
     },
@@ -90,10 +65,10 @@ function Home() {
       value: "angular",
       desc: `
               <h4 class="font-bold text-xl text-gray-800 mb-4">Primary sources of energy - Natural Gas</h4>
-              <ul class="list-disc pl-6 text-gray-700">
-                  <li>World natural gas reserve: 1,064,349 trillion barrels of oil equivalent.</li>
-                  <li>India natural gas reserve: 651.77 million tonnes.</li>
-                  <li>At current rate of consumption, natural gas will be available for the next 50 years approximately.</li>
+              <ul class=" pl-6 text-gray-700">
+                  <li>🌿World natural gas reserve: 1,064,349 trillion barrels of oil equivalent.</li>
+                  <li>🌿India natural gas reserve: 651.77 million tonnes.</li>
+                  <li>🌿At current rate of consumption, natural gas will be available for the next 50 years approximately.</li>
               </ul>
           `,
     },
@@ -102,10 +77,10 @@ function Home() {
       value: "svelte",
       desc: `
               <h4 class="font-bold text-xl text-gray-800 mb-4">Solar, Wind, Bio power, Hydro electric</h4>
-              <ul class="list-disc pl-6 text-gray-700">
-                  <li>Renewables’ share of total primary energy consumption globally reached 14.6%.</li>
-                  <li>India’s target for renewable energy generation by 2030 is 500 GW, current capacity is 143.64 GW.</li>
-                  <li>Installed energy capacity in India is 441.97 GW as of 31 March 2024.</li>
+              <ul class=" pl-6 text-gray-700">
+                  <li>🌿Renewables’ share of total primary energy consumption globally reached 14.6%.</li>
+                  <li>🌿India’s target for renewable energy generation by 2030 is 500 GW, current capacity is 143.64 GW.</li>
+                  <li>🌿Installed energy capacity in India is 441.97 GW as of 31 March 2024.</li>
               </ul>
           `,
     },
@@ -114,9 +89,9 @@ function Home() {
       value: "energy",
       desc: `
               <h4 class="font-bold text-xl text-gray-800 mb-4">Energy and Environment</h4>
-              <ul class="list-disc pl-6 text-gray-700">
-                  <li>Combustion of hydrocarbon-based fuels generates by-products, mainly air pollutants such as CO2, PM, SO2, NOx, HC, and CO.</li>
-                  <li>CO2 is a major contributor to global warming and climate change - CO2 emissions from the combustion of fossil fuels is by far the largest source of energy-related greenhouse gas emissions, contributing around 87% of the total.</li>
+              <ul class="pl-6 text-gray-700">
+                  <li>🌿Combustion of hydrocarbon-based fuels generates by-products, mainly air pollutants such as CO2, PM, SO2, NOx, HC, and CO.</li>
+                  <li>🌿CO2 is a major contributor to global warming and climate change - CO2 emissions from the combustion of fossil fuels is by far the largest source of energy-related greenhouse gas emissions, contributing around 87% of the total.</li>
               </ul>
           `,
     },
@@ -132,35 +107,7 @@ function Home() {
       style={{ backgroundImage: `url(${backgreen})` }}
     >
       {/* Nav Section */}
-      <div className="w-full bg-black h-16 rounded-full flex items-center justify-between px-6">
-
-        <div className="flex items-center">
-          <img src={leaf} alt="Leaf Icon" className="h-8 w-8 mr-2" /> {/* Leaf Icon */}
-          <p className="text-green-400 text-2xl font-pacifco font-bold">PlanetCare</p>
-        </div>
-
-        {/* Logout Icon */}
-        <div className="relative">
-          <img
-            src={logoutIcon}
-            alt="Logout"
-            className="w-8 h-8 cursor-pointer"
-            onClick={() => setShowLogoutPopup(!showLogoutPopup)} // Toggle the popup on click
-          />
-
-          {/* Logout Popup (Modal) */}
-          {showLogoutPopup && (
-            <div className="absolute top-10 right-0 bg-white shadow-md p-4 rounded-md">
-              <button
-                onClick={handleLogout}
-                className="bg-red-600 text-white px-4 py-2 rounded-full"
-              >
-                Logout
-              </button>
-            </div>
-          )}
-        </div>
-      </div>
+      {/* <Navbar/> */}
 
       {/* Header Section */}
       <div className="text-center text-white space-y-6 mb-12 pt-12">
