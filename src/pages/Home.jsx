@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
 import backgreen from "../assets/backgreen.svg";
 import carfoot from "../assets/carfoot.png";
+import logoutIcon from '../assets/logout.svg';
+import leaf from '../assets/leaf.svg';
+import { useState } from 'react';
 import {
   Tabs,
   TabsHeader,
@@ -8,9 +11,41 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
+import axios from "axios";
+import { BACKEND_URL } from "../../const";
+
 
 function Home() {
-  const navigate = useNavigate(); // Initialize navigate function
+
+
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const navigate = useNavigate();
+
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        `${BACKEND_URL}/api/user/logout`,
+        {},
+        {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+          },
+          withCredentials: true, // Ensure cookies are included
+        }
+      );
+
+      if (response.status === 200) {
+        localStorage.removeItem('authToken'); // Remove token from localStorage
+        navigate('/', { replace: true }); // Redirect to login page and replace current page in history
+      }
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Handle the error (e.g., show a message to the user)
+    }
+  };
+
+
 
   const data = [
     {
@@ -98,10 +133,33 @@ function Home() {
     >
       {/* Nav Section */}
       <div className="w-full bg-black h-16 rounded-full flex items-center justify-between px-6">
-        <p className="text-green-700 text-2xl font-pacifco font-bold">
-          {" "}
-          PlanetCare{" "}
-        </p>
+
+        <div className="flex items-center">
+          <img src={leaf} alt="Leaf Icon" className="h-8 w-8 mr-2" /> {/* Leaf Icon */}
+          <p className="text-green-400 text-2xl font-pacifco font-bold">PlanetCare</p>
+        </div>
+
+        {/* Logout Icon */}
+        <div className="relative">
+          <img
+            src={logoutIcon}
+            alt="Logout"
+            className="w-8 h-8 cursor-pointer"
+            onClick={() => setShowLogoutPopup(!showLogoutPopup)} // Toggle the popup on click
+          />
+
+          {/* Logout Popup (Modal) */}
+          {showLogoutPopup && (
+            <div className="absolute top-10 right-0 bg-white shadow-md p-4 rounded-md">
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 text-white px-4 py-2 rounded-full"
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Header Section */}
@@ -143,7 +201,7 @@ function Home() {
               {" "}
               We are the change makers🌿
             </span>
-            . 
+            .
           </p>
         </div>
 
@@ -158,34 +216,34 @@ function Home() {
       </div>
 
       <div className="p-6 w-full mx-auto shadow-lg rounded-lg">
-  <Tabs value="html" className="rounded-lg">
-    {/* Tabs Header Section */}
-    <TabsHeader className="bg-green-900 rounded-t-lg flex flex-col sm:flex-row sm:space-y-0 space-y-2">
-      {data.map(({ label, value }) => (
-        <Tab
-          key={value}
-          value={value}
-          className="text-black font-bold font-eczar text-lg py-2 px-4 transition-all duration-300"
-        >
-          {label}
-        </Tab>
-      ))}
-    </TabsHeader>
+        <Tabs value="html" className="rounded-lg">
+          {/* Tabs Header Section */}
+          <TabsHeader className="bg-green-900 rounded-t-lg flex flex-col sm:flex-row sm:space-y-0 space-y-2">
+            {data.map(({ label, value }) => (
+              <Tab
+                key={value}
+                value={value}
+                className="text-black font-bold font-eczar text-lg py-2 px-4 transition-all duration-300"
+              >
+                {label}
+              </Tab>
+            ))}
+          </TabsHeader>
 
-    {/* Tabs Body Section */}
-    <TabsBody className="p-4 bg-gray-50 justify-center rounded-b-lg">
-      {data.map(({ value, desc }) => (
-        <TabPanel
-          key={value}
-          value={value}
-          className="text-gray-800 text-base leading-6"
-        >
-          <div dangerouslySetInnerHTML={{ __html: desc }} />
-        </TabPanel>
-      ))}
-    </TabsBody>
-  </Tabs>
-</div>
+          {/* Tabs Body Section */}
+          <TabsBody className="p-4 bg-gray-50 justify-center rounded-b-lg">
+            {data.map(({ value, desc }) => (
+              <TabPanel
+                key={value}
+                value={value}
+                className="text-gray-800 text-base leading-6"
+              >
+                <div dangerouslySetInnerHTML={{ __html: desc }} />
+              </TabPanel>
+            ))}
+          </TabsBody>
+        </Tabs>
+      </div>
 
 
     </div>
