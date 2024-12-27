@@ -14,7 +14,14 @@ function CalculateHome() {
   };
 
   return (
-    <div className="p-6 bg-white min-h-screen">
+    <div className="py-3 bg-white min-h-screen">
+      {/* Nav Section */}
+      <div className="w-full bg-black h-16 my-2 rounded-full flex items-center justify-between px-6">
+        <p className="text-green-700 text-2xl font-pacifco font-bold">
+          {" "}
+          PlanetCare{" "}
+        </p>
+      </div>
       {/* Buttons */}
       <div className="grid font-eczar grid-cols-6 gap-2 mb-6">
         <button
