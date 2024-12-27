@@ -1,0 +1,1 @@
+export const BACKEND_URL= "https://carbonfootprints-backend-2.onrender.com" ;

@@ -5,17 +5,39 @@ import emailIcon from "../assets/email.svg";
 import passwordIcon from "../assets/password.svg";
 import loginillus from "../assets/loginillus.png";
 import illusback from "../assets/illusback.svg";
+import axios from "axios";
+import { BACKEND_URL } from "../../const";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // Initialize navigate function
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-    navigate("/home");  // Navigate to /home page
+
+    if (!email || !password) {
+      alert("Please fill out both fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${BACKEND_URL}/api/user/login`, {
+        email,
+        password,
+      });
+      // Store the token in localStorage
+      console.log("Login successful:", response.data);
+
+      // Store the token in localStorage
+      localStorage.setItem('authToken', response.data.token);
+  
+      // Redirect to a protected page (e.g., Home)
+      navigate("/home");
+    } catch (error) {
+      console.error("Login failed:", error.response ? error.response.data : error.message);
+      alert("Login failed. Please check your credentials.");
+    }
   };
 
   return (
@@ -27,7 +49,7 @@ function Login() {
         {/* Left Side: Login Form */}
         <div className="w-full lg:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
           <h2 className="text-3xl sm:text-4xl font-eczar font-extrabold text-green-700 mb-6 text-center">
-            Welcome Back, Eco-Warrior! 
+            Welcome Back, Eco-Warrior!
           </h2>
           {/* 🌿 */}
           <p className="text-center font-Mono text-gray-600 mb-6 text-lg sm:text-xl">
