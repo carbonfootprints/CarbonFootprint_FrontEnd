@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../../const";
+import { toast } from "react-toastify";
 
 function Organisation() {
   const [formData, setFormData] = useState({
@@ -16,6 +18,7 @@ function Organisation() {
   });
 
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,23 +30,32 @@ function Organisation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true
 
     try {
-      const response = await fetch("/api/save-calculator-info", {
+      const response = await fetch(`${BACKEND_URL}/api/direct/organisation`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+      console.log(response);
+      
 
       if (response.ok) {
-        navigate("/next-page"); // replace with your actual route
+        const data = await response.json();
+        toast.success("Organisation saved successfully!"); // Success toast
+        navigate("/boundary"); // Replace with your actual route
       } else {
-        console.error("Failed to save data");
+        const errorData = await response.json();
+        toast.error(errorData.message || "Failed to save data"); // Error toast
       }
     } catch (error) {
       console.error("Error:", error);
+      toast.error("An error occurred. Please try again."); // General error
+    } finally {
+      setLoading(false); // Reset loading
     }
   };
 
@@ -205,8 +217,9 @@ function Organisation() {
         <button
           type="submit"
           className="w-full bg-green-800 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600"
+          disabled={loading} // Disable button while loading
         >
-          Save and Continue
+          {loading ? "Saving..." : "Save and Continue"}
         </button>
       </form>
     </div>
