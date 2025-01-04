@@ -31,6 +31,7 @@ function Organisation() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Set loading to true
+console.log(formData);
 
     try {
       const response = await fetch(`${BACKEND_URL}/api/direct/organisation`, {
