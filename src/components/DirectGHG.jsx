@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 function DirectGHG() {
   const [activeTab, setActiveTab] = useState("Pernambut"); // Default to "Pernambut"
 
-  const { directGHGId } = useParams();
+  const { id } = useParams();
 
-  console.log("Direct GHG ID:", directGHGId);
+  console.log("Direct GHG ID:", id);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -65,21 +65,21 @@ function DirectGHG() {
           <ResourceForm
             locationName="BAB Pernambut"
             apiEndpoint={`${BACKEND_URL}/api/direct/babPernambet`}
-            directGHGId={directGHGId}
+            directGHGId={id}
           />
         )}
         {activeTab === "Consumption" && (
           <ResourceForm
             locationName="BAB Pernambut, Consumption at CETP"
             apiEndpoint={`${BACKEND_URL}/api/direct/babConsumption`}
-            directGHGId={directGHGId}
+            directGHGId={id}
           />
         )}
         {activeTab === "Thirumudivakkam" && (
           <ResourceForm
             locationName="BAB Thirumudivakkam"
             apiEndpoint={`${BACKEND_URL}/api/direct/babThirumudivakkam`}
-            directGHGId={directGHGId}
+            directGHGId={id}
           />
         )}
       </div>
