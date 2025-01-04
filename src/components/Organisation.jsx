@@ -51,7 +51,7 @@ function Organisation() {
         if (response.ok) {
             const data = await response.json();
             toast.success("Organisation saved successfully!");
-            navigate("/boundary");
+            navigate("/direct");
         } else {
             const errorData = await response.json();
             toast.error(errorData.message || "Failed to save data");
