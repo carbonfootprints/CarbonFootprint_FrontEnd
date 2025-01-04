@@ -21,7 +21,7 @@ function App() {
             <Route path="/calci" Component={CalculateHome} />
             <Route path="/production" Component={ProductionSystem} />
             <Route path="/boundary" Component={Boundary} />
-            <Route path="/direct:id" Component={DirectGHG} />
+            <Route path="/direct/:id" Component={DirectGHG} />
             <Route path="/indirect" Component={IndirectGHG} />
             <Route path="/report" Component={Report} />
           </Routes>
