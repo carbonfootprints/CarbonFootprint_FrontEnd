@@ -1,12 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 
-const ResourceForm = ({ locationName, apiEndpoint }) => {
+const ResourceForm = ({ locationName, apiEndpoint, directGHGId }) => {
   const [formData, setFormData] = useState({
     date: "",
     woodenPallets: "",
     firewood: "",
     diesel: "",
+    directGHGId: directGHGId || "",
   });
 
   const handleChange = (e) => {
