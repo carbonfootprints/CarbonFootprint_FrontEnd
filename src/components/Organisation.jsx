@@ -56,7 +56,7 @@ function Organisation() {
             console.log("Saved Organisation:", savedOrganisation);
 
             toast.success("Organisation saved successfully!");
-            navigate("/direct");
+            navigate(`/direct/${savedOrganisation._id}`);
         } else {
             const errorData = await response.json(); // Parse error response
             toast.error(errorData.message || "Failed to save data");
