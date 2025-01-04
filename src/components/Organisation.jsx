@@ -36,6 +36,7 @@ function Organisation() {
     try {
       const response = await fetch(`${BACKEND_URL}/api/direct/organisation`, {
         method: "POST",
+        withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },
