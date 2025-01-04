@@ -31,35 +31,39 @@ function Organisation() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    setLoading(true); // Set loading to true
+    setLoading(true);
+
+    // Parse coordinates as JSON if it's a string
+    const parsedCoordinates = JSON.parse(formData.coordinates);
 
     try {
-      const response = await fetch(`${BACKEND_URL}/api/direct/organisation`, {
-        method: "POST",
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      console.log(response);
-      
+        const response = await fetch(`${BACKEND_URL}/api/direct/organisation`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                ...formData,
+                coordinates: parsedCoordinates, // Send parsed coordinates
+            }),
+        });
 
-      if (response.ok) {
-        const data = await response.json();
-        toast.success("Organisation saved successfully!"); // Success toast
-        navigate("/boundary"); // Replace with your actual route
-      } else {
-        const errorData = await response.json();
-        toast.error(errorData.message || "Failed to save data"); // Error toast
-      }
+        if (response.ok) {
+            const data = await response.json();
+            toast.success("Organisation saved successfully!");
+            navigate("/boundary");
+        } else {
+            const errorData = await response.json();
+            toast.error(errorData.message || "Failed to save data");
+        }
     } catch (error) {
-      console.error("Error:", error);
-      toast.error("An error occurred. Please try again."); // General error
+        console.error("Error:", error);
+        toast.error("An error occurred. Please try again.");
     } finally {
-      setLoading(false); // Reset loading
+        setLoading(false);
     }
-  };
+};
+
 
   return (
     <div className="infoFirstWrapper">
