@@ -48,9 +48,9 @@ function Organisation() {
             }),
         });
 
-        console.log(response);
-        
-        console.log(response.data);
+        console.log(response.data); // Check if this contains the `data` property
+        const savedOrganisation = response.data.data; // Access the `data` property
+        console.log("Saved Organisation:", savedOrganisation);
         
         if (response.ok) {
             // const data = await response.json();
