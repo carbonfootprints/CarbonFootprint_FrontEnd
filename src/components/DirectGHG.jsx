@@ -1,8 +1,13 @@
 import { useState } from "react";
 import ResourceForm from "./ResourceForm";
 import { BACKEND_URL } from "../../const";
+import { useParams } from "react-router-dom";
 function DirectGHG() {
   const [activeTab, setActiveTab] = useState("Pernambut"); // Default to "Pernambut"
+
+  const { directGHGId } = useParams();
+
+  console.log("Direct GHG ID:", directGHGId);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -60,18 +65,21 @@ function DirectGHG() {
           <ResourceForm
             locationName="BAB Pernambut"
             apiEndpoint={`${BACKEND_URL}/api/direct/babPernambet`}
+            directGHGId={directGHGId}
           />
         )}
         {activeTab === "Consumption" && (
           <ResourceForm
             locationName="BAB Pernambut, Consumption at CETP"
             apiEndpoint={`${BACKEND_URL}/api/direct/babConsumption`}
+            directGHGId={directGHGId}
           />
         )}
         {activeTab === "Thirumudivakkam" && (
           <ResourceForm
             locationName="BAB Thirumudivakkam"
             apiEndpoint={`${BACKEND_URL}/api/direct/babThirumudivakkam`}
+            directGHGId={directGHGId}
           />
         )}
       </div>
