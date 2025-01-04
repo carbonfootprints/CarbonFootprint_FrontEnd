@@ -48,6 +48,8 @@ function Organisation() {
             }),
         });
 
+        console.log(response.data);
+        
         if (response.ok) {
             // const data = await response.json();
             toast.success("Organisation saved successfully!");
