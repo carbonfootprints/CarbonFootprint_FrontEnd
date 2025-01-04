@@ -33,10 +33,10 @@ function Organisation() {
     console.log(formData);
     setLoading(true);
 
-    // Parse coordinates as JSON if it's a string
-    const parsedCoordinates = JSON.parse(formData.coordinates);
-
     try {
+        // Parse coordinates as JSON if needed
+        const parsedCoordinates = JSON.parse(formData.coordinates);
+
         const response = await fetch(`${BACKEND_URL}/api/direct/organisation`, {
             method: "POST",
             headers: {
@@ -48,16 +48,17 @@ function Organisation() {
             }),
         });
 
-        console.log(response.data); // Check if this contains the `data` property
-        const savedOrganisation = response.data.data; // Access the `data` property
-        console.log("Saved Organisation:", savedOrganisation);
-        
         if (response.ok) {
-            // const data = await response.json();
+            const data = await response.json(); // Parse the JSON response
+            console.log("Response Data:", data);
+
+            const savedOrganisation = data.data; // Access the `data` property
+            console.log("Saved Organisation:", savedOrganisation);
+
             toast.success("Organisation saved successfully!");
             navigate("/direct");
         } else {
-            const errorData = await response.json();
+            const errorData = await response.json(); // Parse error response
             toast.error(errorData.message || "Failed to save data");
         }
     } catch (error) {
