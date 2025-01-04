@@ -48,6 +48,8 @@ function Organisation() {
             }),
         });
 
+        console.log(response);
+        
         console.log(response.data);
         
         if (response.ok) {
