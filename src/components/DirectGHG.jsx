@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ResourceForm from "./ResourceForm";
-
+import { BACKEND_URL } from "../../const";
 function DirectGHG() {
   const [activeTab, setActiveTab] = useState("Pernambut"); // Default to "Pernambut"
 
@@ -59,19 +59,19 @@ function DirectGHG() {
         {activeTab === "Pernambut" && (
           <ResourceForm
             locationName="BAB Pernambut"
-            apiEndpoint="http://localhost:8000/api/pernambut"
+            apiEndpoint={`${BACKEND_URL}/api/direct/babPernambet`}
           />
         )}
         {activeTab === "Consumption" && (
           <ResourceForm
             locationName="BAB Pernambut, Consumption at CETP"
-            apiEndpoint="http://localhost:8000/api/consumption"
+            apiEndpoint={`${BACKEND_URL}/api/direct/babConsumption`}
           />
         )}
         {activeTab === "Thirumudivakkam" && (
           <ResourceForm
             locationName="BAB Thirumudivakkam"
-            apiEndpoint="http://localhost:8000/api/thirumudivakkam"
+            apiEndpoint={`${BACKEND_URL}/api/direct/babThirumudivakkam`}
           />
         )}
       </div>
