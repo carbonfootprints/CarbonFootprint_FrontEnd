@@ -16,6 +16,7 @@ const ResourceForm = ({ locationName, apiEndpoint }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     try {
       // Sending data to the backend
       const response = await axios.post(apiEndpoint, formData);
