@@ -52,7 +52,8 @@ function Organisation() {
             const data = await response.json(); // Parse the JSON response
             console.log("Response Data:", data);
 
-            const savedOrganisation = data.data; // Access the `data` property
+            const savedOrganisations = data.data; // Access the `data` property
+            const savedOrganisation = savedOrganisations.directGHG;
             console.log("Saved Organisation:", savedOrganisation);
 
             toast.success("Organisation saved successfully!");
